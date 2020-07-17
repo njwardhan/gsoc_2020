@@ -8,7 +8,7 @@ from colour.utilities import as_int_array, as_float_array
 
 def read_unordered_LUT_SonySPI3D(path):
     """
-    Reads given unordered *Sony* *.spi3d* *LUT* file.
+    Reads given unordered *.spi3d* *LUT* file.
 
     Parameters
     ----------
