@@ -29,10 +29,6 @@ def read_LUT_UnorderedSonySPI3D(path):
                     indexes.append(as_int_array(tokens[:3]))
                     table.append(as_float_array(tokens[3:]))
         indexes = as_int_array(indexes)
-        #print(indexes)
-        #print(indexes[:,2])
-        #print(indexes[:,1])
-        #print(indexes[:,0])
         sorting_indexes = np.lexsort((indexes[:,2], indexes[:,1], indexes[:,0]))
         #print(sorting_indexes)
         assert np.array_equal(
@@ -47,4 +43,4 @@ def read_LUT_UnorderedSonySPI3D(path):
 
 
 NJW = read_LUT_UnorderedSonySPI3D('/home/njwardhan/Desktop/Unordered_test.cube')
-print(NJW)
+#print(NJW)
