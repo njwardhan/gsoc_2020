@@ -4,22 +4,22 @@ from colour.constants import DEFAULT_INT_DTYPE
 from colour.utilities.deprecation import handle_arguments_deprecation
 
 
-def inverse(table):
+def inverse(self):
     """
-    Generates a LUT with the reverse effect as that of a given 1D *LUT*. 
+    Generates the inverse effect of a given 1D *LUT*. 
 
-    Parameters
-    ----------
-    table : array_like
-        LUT table to be used to generate the reverse effect table values.
+    Returns
+    -------
+    ndarray
+        A table with the reverse effect as that of a given 1D *LUT*.
     """
 
-    SIZE = len(table)
-    LUT_inverse = colour.LUT1D(size=SIZE)
-    LUT_inverse.table = colour.Extrapolator(
+    SIZE = len(self._table)
+    table_i = colour.LUT1D.linear_table(size=SIZE)
+    table_i = colour.Extrapolator(
         colour.LinearInterpolator(
-        table, LUT_inverse.table))(LUT_inverse.table)
-    return LUT_inverse.table
+        self._table, table_i))(table_i)
+    return table_i
 
 
 def apply(self,
